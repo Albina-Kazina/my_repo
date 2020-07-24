@@ -1,0 +1,16 @@
+$block: 'button';
+
+.#{$block} {
+  color: #fff;
+  background-color:#1c124b;
+  height: 24px;
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+  border: 0;
+}
