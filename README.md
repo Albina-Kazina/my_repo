@@ -1,1 +1,1 @@
-# epam_repo
+# my_repo
