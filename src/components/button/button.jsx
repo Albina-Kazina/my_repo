@@ -1,32 +1,21 @@
 import React from 'react';
-import cn from 'classnames';
-
 import './button.scss';
+
 const block = 'button';
 
 export default function Button({
-  color,
   text,
-  className,
-  onClick = () => {},
-  id,
+  onClick = () => { },
   ...props
 }) {
-  const classes = cn(
-    block,
-    { [`${block}--color-${color}`]: !!color },
-    className,
-  );
-
   return (
     <button
+      className={block}
       type="button"
-      {...props}
-      className={classes}
       onClick={onClick}
-      id ={id}
+      {...props}
     >
-      {text}
+      {text || props.children}
     </button>
   );
 }

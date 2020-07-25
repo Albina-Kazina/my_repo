@@ -1,0 +1,44 @@
+@import '../../constants/colors';
+
+$block: 'diagram';
+
+.#{$block} {
+    width:1440px;
+    height:30px; 
+    background-color: $wild-sand;
+    margin: 0 auto;
+    display: flex;
+
+    &--animate {
+        animation: slideDown 3s linear infinite;
+    }   
+
+    @keyframes slideDown{
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+    &__night{
+        background-color: $bunting;
+    }
+
+    &__twilight--am{
+        background: linear-gradient(0.25turn, $bunting, $picton-blue);
+    }
+
+    &__twilight--pm{
+        background: linear-gradient(0.25turn,$picton-blue, $bunting);
+    }
+
+    &__day{
+        background-color: $picton-blue;
+    }
+
+    
+}

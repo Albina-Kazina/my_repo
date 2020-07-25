@@ -1,10 +1,27 @@
+@import '../constants/colors';
 $block: 'home';
 
 .#{$block} {
-    background-color: #dddddd; 
+    background-color: $alto; 
     margin: 30px;
     height: 400px;
     min-width: 1440px;
+    padding: 50px 20px;
+
+    &__current-date{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    &__weather-info-item-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__weather-info-item{
+        padding: 5px;
+    }
 
     &__weather-info{
         display: flex;

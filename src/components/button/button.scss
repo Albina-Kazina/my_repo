@@ -1,8 +1,10 @@
+@import '../../constants/colors';
+
 $block: 'button';
 
 .#{$block} {
-  color: #fff;
-  background-color:#1c124b;
+  color: $wild-sand;
+  background-color:$bunting;
   height: 24px;
   cursor: pointer;
   display: block;
