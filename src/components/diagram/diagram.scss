@@ -8,36 +8,43 @@ $block: 'diagram';
     background-color: $wild-sand;
     margin: 0 auto;
     display: flex;
+    position: relative;
 
     &--animate {
-        animation: slideDown 3s linear infinite;
+        transition: width 1s ease-out 0.5s;
     }   
-
-    @keyframes slideDown{
-        from {
-          transform: translateY(-100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
 
     &__night{
         background-color: $bunting;
+        width:1440px;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        height: 30px;
+        right: 0;
+        top: 0;
+    }
+
+    &__twilight{
+        position: absolute;
+        z-index: 4;
+        height: 30px;
+        display: flex;
     }
 
     &__twilight--am{
         background: linear-gradient(0.25turn, $bunting, $picton-blue);
+        height: 100%;
     }
 
     &__twilight--pm{
         background: linear-gradient(0.25turn,$picton-blue, $bunting);
+        height: 100%;
     }
 
     &__day{
         background-color: $picton-blue;
+        height: 100%;
     }
 
     

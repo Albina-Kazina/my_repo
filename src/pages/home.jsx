@@ -22,7 +22,6 @@ class HomeContainer extends Component {
       longitude: 0,
       latitude: 0,
       currentDate: '',
-      isDateChanging: false,
     }
   }
 
@@ -46,17 +45,12 @@ class HomeContainer extends Component {
   async makeRequest(latitude, longitude, date = 'today') {
     const result = await axios.get(urlBuilder(Api.Date.GET_DATA, { lat: latitude, lng: longitude, date: date }));
     this.props.getDateValues(result.data.results);
-
-    setTimeout(() => {
-      this.setState({ isDateChanging: false })
-    }, 2000);
   }
 
   handleButtonClick = type => e => {
     const { latitude, longitude } = this.state;
     this.setState({
       currentDate: moment().add(dayValuesDefenition[type], 'days').format('DD/MM/YYYY'),
-      isDateChanging: true,
     });
     this.makeRequest(
       latitude,
@@ -96,7 +90,7 @@ class HomeContainer extends Component {
         civil_twilight_begin,
         civil_twilight_end }
     } = this.props;
-    const { currentDate, isDateChanging } = this.state;
+    const { currentDate } = this.state;
     return (
       <div className={block}>
         <div className={`${block}__weather-info`}>
@@ -106,7 +100,6 @@ class HomeContainer extends Component {
         {this.renderButtons()}
         {currentDate !=='' ?
           <Diagram
-            isDateChanging={isDateChanging}
             sunrise={sunrise}
             sunset={sunset}
             day_length={day_length}
