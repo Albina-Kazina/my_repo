@@ -50,12 +50,13 @@ class HomeContainer extends Component {
   handleButtonClick = type => e => {
     const { latitude, longitude } = this.state;
     this.setState({
-      currentDate: moment().add(dayValuesDefenition[type], 'days').format('DD/MM/YYYY'),
+      currentDate: moment(this.state.currentDate, "DD-MM-YYYY").add(dayValuesDefenition[type], 'days').format('DD/MM/YYYY'),
     });
     this.makeRequest(
       latitude,
       longitude,
-      dayValuesDefenition[type] && moment().add(dayValuesDefenition[type], 'days').format('YYYY-MM-DD'));
+      dayValuesDefenition[type] &&
+      moment(this.state.currentDate, "DD-MM-YYYY").add(dayValuesDefenition[type], 'days').format('YYYY-MM-DD'));
   }
 
   renderWeatherInfo(sunrise, sunset, dayLength) {
@@ -67,7 +68,7 @@ class HomeContainer extends Component {
       </div>
     )
   }
- 
+
   renderButtons() {
     return (
       <div className={`${block}__wrapper-buttons`} >
@@ -98,7 +99,7 @@ class HomeContainer extends Component {
           {this.renderWeatherInfo(sunrise, sunset, day_length)}
         </div>
         {this.renderButtons()}
-        {currentDate !=='' ?
+        {currentDate !== '' ?
           <Diagram
             sunrise={sunrise}
             sunset={sunset}
